@@ -111,7 +111,8 @@ def download_transcriptions_combined(**kwargs):
         transcript = conversation["transcript"]
         df = pd.DataFrame(transcript)
         df.insert(0, "initiator_agent_id", conversation["agent_id"])
-        df.insert(1, "conversation_id", conversation["conversation_id"])
+        df.insert(1, "initiator_agent_name", conversation["agent_name"])
+        df.insert(2, "conversation_id", conversation["conversation_id"])
         all_transcripts.append(df)
 
     if all_transcripts:
